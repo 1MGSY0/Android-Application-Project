@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Android Application Project</string>
+    //App
+    <string name="app_name">Quizzup</string>
+
+    //Login
+    <string name="btn_signin">Sign In</string>
+
+    //Home
+    <string name="btn_join">Join</string>
 </resources>
