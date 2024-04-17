@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.content.Context;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,27 +21,42 @@ import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextInputEditText uernameInput, passwardInput;
-    Button signinBtn;
+    EditText username_input, password_input;
+    Button signin_btn, to_signup_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        username_input = findViewById(R.id.username_input);
+        password_input = findViewById(R.id.password_input);
+        signin_btn =  findViewById(R.id.signin_btn);
+        to_signup_btn =  findViewById(R.id.to_signup_btn);
+        DBHelper db = new DBHelper(LoginActivity.this);
+
+        signin_btn.setOnClickListener(view -> {
+            String username = username_input.getText().toString().trim();
+            String password = password_input.getText().toString().trim();
+
+            if(username.isEmpty() || password.isEmpty()){
+                Toast.makeText(getApplicationContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            }else{
+                if(db.signInCheck(username, password)){
+                    Toast.makeText(getApplicationContext(), "Sign-In Successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(), "Sign-In Unsuccessful, Please check your account details", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
 
+        to_signup_btn.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+            startActivity(intent);
+        });
 
-    }
-
-    public void toHome(View view) {
-        // Check User detail
-        //If User is already sign-up, proceed to home
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
     }
 }

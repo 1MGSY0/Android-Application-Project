@@ -9,7 +9,7 @@
     android:background="@drawable/login_bg"
     android:gravity="center"
     android:padding="16dp"
-    tools:context=".LoginActivity">
+    tools:context=".SignUpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,17 +17,21 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:src="@drawable/account_icon"/>
-
         <EditText
             android:id="@+id/username_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:hint="Username"
+            android:padding="18dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="Email"
             android:padding="18dp"
             android:inputType="text" />
 
@@ -40,12 +44,21 @@
             android:padding="18dp"
             android:inputType="textPassword" />
 
-        <Button
-            android:id="@+id/signin_btn"
+        <EditText
+            android:id="@+id/password_reenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Sign In"
+            android:hint="Re-Enter Password"
+            android:padding="18dp"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/signup_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Sign Up"
             android:backgroundTint="#F4F1E7"
             android:textColor="#3F51B5"
             android:padding="18dp"
@@ -61,15 +74,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Creating a new account?" />
+                android:text="Already have an account?" />
 
             <Button
-                android:id="@+id/to_signup_btn"
+                android:id="@+id/to_signin_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#00FFFFFF"
                 android:textColor="#3F51B5"
-                android:text="Sign up"/>
+                android:text="Sign in"/>
 
         </LinearLayout>
 
