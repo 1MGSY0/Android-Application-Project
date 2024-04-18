@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/signup_view"
+    android:id="@+id/addquiz_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
     android:gravity="center"
     android:padding="16dp"
-    tools:context=".SignUpActivity">
+    tools:context=".AddQuizActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,52 +18,49 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/username_input"
+            android:id="@+id/question_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:hint="Username"
+            android:hint="Question"
             android:padding="18dp"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/email_input"
+            android:id="@+id/opt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:hint="Email"
+            android:hint="Optioin 1"
             android:padding="18dp"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/password_input"
+            android:id="@+id/opt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:hint="Password"
+            android:hint="Option 2"
             android:padding="18dp"
-            android:inputType="textPassword" />
+            android:inputType="text" />
 
         <EditText
-            android:id="@+id/password_reenter"
+            android:id="@+id/opt3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:hint="Re-Enter Password"
+            android:hint="Option 3"
             android:padding="18dp"
-            android:inputType="textPassword" />
+            android:inputType="text" />
 
-        <Button
-            android:id="@+id/signup_btn"
+        <EditText
+            android:id="@+id/opt4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Sign Up"
-            android:backgroundTint="#F4F1E7"
-            android:textColor="#3F51B5"
+            android:hint="Option 4"
             android:padding="18dp"
-            android:textSize="20sp" />
-
+            android:inputType="text" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,15 +71,44 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account?" />
+                android:text="Answer: "
+                android:textSize="25sp"/>
+
+            <NumberPicker
+                android:id="@+id/answer"
+                android:layout_width="wrap_content"
+                android:layout_height="79dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
 
             <Button
-                android:id="@+id/to_signin_btn"
+                android:id="@+id/finish_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#00FFFFFF"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="50dp"
+                android:text="Save and Finish"
+                android:backgroundTint="#FFFFFF"
                 android:textColor="#3F51B5"
-                android:text="Sign in"/>
+                android:padding="18dp"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/next_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Next >"
+                android:backgroundTint="#F4F1E7"
+                android:textColor="#3F51B5"
+                android:padding="18dp"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

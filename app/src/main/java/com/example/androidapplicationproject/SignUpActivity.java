@@ -12,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText username_input, email_input, password_input, password_reenter;
-    Button signup_btn, to_signin_btn;
+    private EditText username_input, email_input, password_input, password_reenter;
+    private Button signup_btn, to_signin_btn;
+
+    DBHelper db;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
         password_reenter = findViewById(R.id.password_reenter);
         signup_btn =  findViewById(R.id.signup_btn);
         to_signin_btn =  findViewById(R.id.to_signin_btn);
-        DBHelper db = new DBHelper(SignUpActivity.this);
+        db = new DBHelper(SignUpActivity.this);
 
         signup_btn.setOnClickListener(view -> {
             String username = username_input.getText().toString().trim();

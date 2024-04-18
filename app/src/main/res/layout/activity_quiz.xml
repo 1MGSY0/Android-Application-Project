@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/quiz_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".SignUpActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/opt1_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="Option 1"
+            android:backgroundTint="#F4F1E7"
+            android:textColor="#3F51B5"
+            android:padding="18dp" />
+        <Button
+            android:id="@+id/opt2_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="Option 2"
+            android:backgroundTint="#F4F1E7"
+            android:textColor="#3F51B5"
+            android:padding="18dp" />
+        <Button
+            android:id="@+id/opt3_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="Option 3"
+            android:backgroundTint="#F4F1E7"
+            android:textColor="#3F51B5"
+            android:padding="18dp" />
+        <Button
+            android:id="@+id/opt4_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="Option 4"
+            android:backgroundTint="#F4F1E7"
+            android:textColor="#3F51B5"
+            android:padding="18dp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

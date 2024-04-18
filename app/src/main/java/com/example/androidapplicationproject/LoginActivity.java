@@ -21,8 +21,9 @@ import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText username_input, password_input;
-    Button signin_btn, to_signup_btn;
+    private EditText username_input, password_input;
+    private Button signin_btn, to_signup_btn;
+    DBHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         password_input = findViewById(R.id.password_input);
         signin_btn =  findViewById(R.id.signin_btn);
         to_signup_btn =  findViewById(R.id.to_signup_btn);
-        DBHelper db = new DBHelper(LoginActivity.this);
+        db = new DBHelper(LoginActivity.this);
 
         signin_btn.setOnClickListener(view -> {
             String username = username_input.getText().toString().trim();
@@ -45,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             }else{
                 if(db.signInCheck(username, password)){
                     Toast.makeText(getApplicationContext(), "Sign-In Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(), "Sign-In Unsuccessful, Please check your account details", Toast.LENGTH_SHORT).show();
