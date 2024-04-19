@@ -13,7 +13,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DB_NAME = "CodetriviaApp.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
     private static final String USER_TABLE = "users";
     private static final String USER_ID = "id";
     private static final String USERNAME = "username";
@@ -22,6 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String QUIZ_TABLE = "quizes";
     private static final String QUIZ_ID = "id";
+    private static final String QUIZ_TITLE = "title";
     private static final String QUESTION = "question";
     private static final String OPTION_1 = "option1";
     private static final String OPTION_2 = "option2";
@@ -43,9 +44,11 @@ public class DBHelper extends SQLiteOpenHelper {
                         EMAIL + " TEXT, " +
                         PASSWORD + " TEXT)" ;
         db.execSQL(user_query);
+
         String quiz_query =
                 "CREATE TABLE " + QUIZ_TABLE +
                         " (" + QUIZ_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        QUIZ_TITLE + " TEXT, " +
                         QUESTION + " TEXT, " +
                         OPTION_1 + " TEXT, " +
                         OPTION_2 + " TEXT, " +
@@ -94,6 +97,30 @@ public class DBHelper extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery(check_user, new String[]{username, password});
         return cursor.getCount() > 0;
+    }
+
+    public Boolean addRecord(String username, String email, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues content = new ContentValues();
+
+        content.put(USERNAME, username);
+        content.put(EMAIL, email);
+        content.put(PASSWORD, password);
+        long result = db.insert(USER_TABLE, null,content);
+        return result == -1;
+    }
+    public Boolean addQuizFail(String question, String option1, String option2, String option3, String option4, String answer) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues content = new ContentValues();
+
+        content.put(QUESTION, question);
+        content.put(OPTION_1, option1);
+        content.put(OPTION_2, option2);
+        content.put(OPTION_3, option3);
+        content.put(OPTION_4, option4);
+        content.put(ANSWER, answer);
+        long result = db.insert(QUIZ_TABLE, null,content);
+        return result == -1;
     }
 
 }
